@@ -1,0 +1,732 @@
+/* 1. ГЛОБАЛНИ СТИЛОВИ (Извлечено надвор од body) */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000000; /* Чиста црна позадина */
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  background-color: #000000;
+}
+
+/* 2. NAVBAR (ДЕСКТОП) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px; 
+  z-index: 1000;
+  background-color: transparent; 
+  transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.95); 
+  padding: 12px 40px;                   
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-logo-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.insta-icon-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.insta-icon-img:hover {
+  transform: scale(1.15);
+}
+
+/* Линкови за ДЕСКТОП */
+.nav-links-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex: 2;
+  padding: 6px 20px;
+  margin: 0 auto;
+  max-width: fit-content;
+  border-radius: 30px;
+  background: linear-gradient(#000000, #000000) padding-box,
+              linear-gradient(45deg, #ffcc00, #ff3333) border-box;
+  border: 2px solid transparent;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: white;
+  background: linear-gradient(45deg, yellow, red);
+}
+
+.insta-link {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.insta-link:hover {
+  color: #ff3333;
+}
+
+/* Копче за хамбургер (скриено на десктоп) */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-btn .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* 3. МОБИЛЕН ПРИКАЗ (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 20px;
+  }
+
+  .hamburger-btn {
+    display: flex; /* Се појавува хамбургер копчето */
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+    margin-top: 15px;
+  }
+
+  /* Ресетирање на десктоп рамката и поставување странично мени */
+  .nav-links-center {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: #121212; /* Чиста темна позадина за менито */
+    border: none; /* Се отстранува заоблената рамка од десктоп */
+    border-radius: 0;
+    max-width: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+
+  .nav-links-center.active {
+    right: 0; /* Се појавува менито кога е кликнато */
+  }
+}
+
+
+/* HERO SECTION */
+.hero {
+width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  min-height: 100vh;
+  
+  /* Магијата за сликата */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  /* Центрирање на текстот */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-size: 64px;
+  margin: 0;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 40px;
+  }
+}
+
+.subtitle {
+  font-size: 24px;
+  color: #ffcc00; /* Жолта боја */
+  margin-top: 10px;
+}
+
+.cta-button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #ff3333; /* Црвено копче */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #cc0000;
+}
+
+/* SECTIONS */
+
+
+
+
+
+
+.about-section {
+ width: 100%;
+  display: flex;
+  justify-content: center; /* Го центрира контејнерот на средина на екранот */
+  align-items: center;
+  padding: 60px 0; /* Остава малку простор горе и долу меѓу секциите */
+}
+
+.about-section .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px; /* Спречува елементите да се лепат до рабовите на екранот */
+  box-sizing: border-box;
+}
+
+/* Главната картичка - Комплетно средена во црвено-жолт стил */
+.about-card {
+  background: #080808; /* Премиум темна сива, исто како кај вештините */
+  max-width: 950px;
+  width: 100%;
+  color: white;
+  padding: 40px;
+  box-shadow: 0px 0px 25px rgba(255, 77, 77, 0.15), 0px 0px 25px rgba(255, 204, 0, 0.15);
+  
+  /* РЕДЕЊЕ ЕДЕН ДО ДРУГ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  
+  /* Твојот flex-wrap кој овозможува респонзивност */
+  flex-wrap: wrap; 
+
+  /* Заоблена градиент рамка (црвено-жолта) */
+  border: 3px solid transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(#080808, #080808), linear-gradient(to right, #ff3333, #ffcc00);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Секцијата со текстот */
+.about-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Линијата под насловот */
+.title-line {
+  height: 3px;
+  width: 100px;
+  background: linear-gradient(90deg, #ffcc00, #ff3333, transparent);
+  margin-bottom: 25px;
+}
+
+.about-card p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #cccccc;
+}
+
+/* Нагласениот збор */
+.jm {
+  color: #ff3333;
+  font-weight: bold;
+}
+
+/* СЕКЦИЈА ЗА СЛИКАТА */
+.about-image-container {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 15px;
+  border: 2px solid #ff3333;
+  box-shadow: 0px 0px 15px rgba(255, 51, 51, 0.3);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Ефект на сликата при hover */
+.about-img:hover {
+  transform: scale(1.03);
+  border-color: #ffcc00;
+  box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.4);
+}
+
+/* Медиа квери за мобилни телефони */
+@media (max-width: 768px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 30px;
+    width: 100%; /* Ова осигурува дека картичката ќе го пополни просторот правилно */
+    box-sizing: border-box; /* Растојание меѓу текстот и сликата кога се еден под друг */
+  }
+
+  /* 2. Текстот - му даваме 100% ширина за да се рашири убаво на средина */
+  .about-content {
+    width: 100%;
+    min-width: 0; /* Го ресетираме претходниот min-width за да не згмечува */
+  }
+
+  /* Насловот и параграфот да бидат убаво центрирани */
+  .about-card h2 {
+    font-size: 1.8rem; /* Малку помал наслов за мобилен */
+    text-align: center;
+  }
+
+  .about-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: center; /* Центриран текст на средина */
+    margin: 0 auto;
+  }
+
+  /* 3. Линијата под насловот */
+  .title-line {
+    margin: 0 auto 20px auto; /* Ја центрира точно на средина */
+    background: linear-gradient(90deg, transparent, #ffcc00, #ff3333, transparent); /* Убав респонзивен прелив */
+  }
+
+  /* 4. Контејнерот за сликата - му даваме простор на мобилен */
+  .about-image-container {
+    width: 100%;
+    min-width: 0; /* Го ресетираме претходниот min-width */
+    display: flex;
+    justify-content: center; /* Ја центрира сликата во средината на екранот */
+  }
+
+  /* Самата слика ја правиме малку помала на телефон за да не изгледа огромно */
+  .about-img {
+    max-width: 240px; /* Ова ќе ја направи сликата совршена големина на телефон */
+    height: 240px; /* Фиксна висина за да биде совршен квадрат/круг */
+    object-fit: cover;
+  }
+}
+
+.sub-heading {
+  font-size: 26px;
+  color: #ff3333;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* od ovde pocvi sekcija za moi skilovi */
+
+
+
+.skills-section {
+  padding: 80px 20px;
+  background-color: #000000; /* Скроз црна, без сивило */
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Главниот наслов */
+.skills-title {
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: #ffffff; /* Чисто бели букви */
+  letter-spacing: 1px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px;
+  
+  /* 1. Го исклучуваме wrap на десктоп за да ги собере сите 4 во една линија */
+  flex-wrap: wrap; 
+}
+
+/* Стил за картичките */
+.skill-card {
+  flex: 1;
+  /* 2. Намали ја минималната ширина на 200px за да не се буткаат на помали лаптопи */
+  min-width: 200px; 
+  background-color: #080808; 
+  padding: 30px 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  
+  /* Твојот градиент за рамка (си останува ист) */
+  border: 3px solid transparent;
+  border-radius: 16px; 
+  background-image: linear-gradient(#080808, #080808), linear-gradient(to right, #ff4d4d, #ffcc00);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+/* Hover ефект со комбиниран сјај */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 77, 77, 0.2), 0 0 25px rgba(255, 204, 0, 0.2);
+}
+
+/* Насловите во картичките */
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  font-size: 1.5rem;
+  color: #ffffff; /* Чисто бели букви */
+  
+  /* ЦРВЕНО-ЖОЛТА ЛИНИЈА ПОД НАСЛОВОТ */
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, #ff4d4d, #ffcc00) 1;
+}
+
+.skill-card ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Порамнување: Лого лево, Текст десно */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+  list-style: none;
+}
+
+.skill-item img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Чисто бели букви за технологиите */
+.skill-item span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff; 
+}
+
+/* ovde zavrsuva sekcijata */
+
+
+/* PROJECTS */
+
+
+
+.projects-section {
+  padding: 50px 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* РЕДОТ ШТО СЕ СКРОЛА */
+.projects-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll; /* Променето од auto во scroll за сигурност */
+  scroll-behavior: smooth;
+  padding: 20px 10px;
+  width: 100%;
+  
+  /* Ги криеме замарачиштата од scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* КАРТИЧКИТЕ */
+.project-card {
+  flex: 0 0 300px;
+  min-width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  
+  /* Менуваме од #1e1e1e во #000000 за внатрешноста да биде темно црна */
+  border: 3px solid transparent;
+  background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #ff0000, #E6B800);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.project-img {
+ width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top; /* Го чува горниот дел од сајтот */
+  display: block;
+  background-color: #000000;
+  border-bottom: 1px solid red;
+}
+
+.project-logo-img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain; /* Го собира целото лого убаво */
+      /* Не му дозволува да ги допира црвените рамки */
+  box-sizing: border-box;
+  display: block;
+  background-color: #000000;
+  border-bottom: 1px solid red;
+}
+
+.project-info {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ја раширува содржината за да ја исполни картичката */
+}
+
+.project-info h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+
+  flex-grow: 1; /* Го исполнува празниот простор ако има помалку текст */
+}
+
+.live-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #E6B800;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+
+  margin-top: auto; /* Го заковува копчето најдолу во иста линија */
+  align-self: flex-start;
+  transition: all 0.25s ease-in-out;
+
+}
+
+.live-btn:hover{
+  background-color: #cca300; /* Малку потемна златна за богато чувство */
+  transform: translateY(-10px); /* Благо се подигнува нагоре */
+  box-shadow: 0 4px 12px rgba(230, 184, 0, 0.35);
+}
+
+.project-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.github-btn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* СТРЕЛКИТЕ */
+.nav-btn {
+  background-color: #1e1e1e;
+  color: #E6B800;
+  border: 2px solid #ff0000;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.1);
+  background-color: #000;
+}
+
+.left-btn { margin-right: 15px; }
+.right-btn { margin-left: 15px; }
+
+/* ТОЧКИТЕ ДOЛУ */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #444;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #888;
+}
+
+.dot.active {
+  background-color: #E6B800; /* Твојата темно-жолта боја */
+  width: 28px;
+  border-radius: 14px;
+}
+/* 📱 МОБИЛЕН ЕКРАН */
+@media (max-width: 600px) {
+  .projects-carousel {
+    scroll-snap-type: x mandatory; /* Ова го вклучуваме САМО на мобилен! */
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .project-card {
+    flex: 0 0 82vw;
+    min-width: 82vw;
+    scroll-snap-align: center;
+  }
+}
+
+
+
+

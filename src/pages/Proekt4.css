@@ -1,0 +1,288 @@
+.proekt4-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0; /* Се осигураме дека нема надворешна маргина */
+  padding-top: 20px; /* Вака со padding ги оддалечуваш елементите внатре, наместо да правиш црни рамки надвор */
+  padding-bottom: 40px;
+  background: linear-gradient(135deg, #1f0303 0%, #0a0a0a 50%, #1a1400 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  box-sizing: border-box; /* Имотот за правилно пресметување на висината */
+}
+
+.proekt4-wrapper {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  
+  color: #ffffff;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* КОПЧЕ НАЗАД */
+.back-btn {
+  background-color: #ff2e2e;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #d12323;
+  transform: translateX(-3px);
+}
+
+/* HERO СЕКЦИЈА */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #121212;
+  border-radius: 20px;
+  border: 1px solid #222222;
+  border-bottom: 4px solid #ff2e2e;
+  margin-bottom: 30px;
+}
+
+.sub-header {
+  color: #ffd700;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #aaaaaa;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* GRID РАСПОРЕД */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* КАРТИЧКА СО ТЕКСТ */
+.main-card {
+  background-color: #121212;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #222222;
+  border-left: 6px solid #ff2e2e;
+}
+
+.section-title {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+.summary-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  font-style: italic;
+  border-left: 3px solid #ffd700;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.description-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.features-list {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  padding-left: 20px;
+}
+
+.feature-item {
+  margin-bottom: 12px;
+}
+
+.yellow-text {
+  color: #ffd700;
+}
+
+/* HIGHLIGHTS КАРТИЧКИ (ДЕСНО) */
+.highlights-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlight-box {
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid #ffd700;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.highlight-box:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.highlight-box.featured {
+  background-color: #ff2e2e;
+  border-color: #ff2e2e;
+}
+
+.highlight-box.featured:hover {
+  background-color: #d12323;
+}
+
+.highlight-title {
+  display: block;
+  font-size: 1.8rem;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 4px;
+  color: #ffd700;
+}
+
+.highlight-box.featured .highlight-title {
+  color: #ffffff;
+}
+
+.highlight-desc {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* ДОЛНА СЕКЦИЈА ЗА ТЕХНОЛОГИИ */
+.tech-section {
+  padding: 25px;
+  background-color: #121212;
+  border-radius: 20px;
+  border: 1px solid #222222;
+}
+
+.tech-title {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem 0;
+}
+
+/* Картичка за секоја технологија */
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05); /* Лесна проѕирна позадина */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Сликичките / Иконите за технологиите */
+.tech-icon {
+  width: 75px;
+  height: 75px;
+  object-fit: contain; /* Го чува односот на димензии без деформација */
+  margin-bottom: 0.5rem;
+}
+
+/* Името на технологијата под иконата */
+.tech-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 46, 46, 0.7);
+  }
+  70% {
+    transform: scale(1.03); /* Малку се зголемува */
+    box-shadow: 0 0 0 12px rgba(255, 46, 46, 0); /* Сјајот се шири и исчезнува */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 46, 46, 0);
+  }
+}
+
+/* Применување на анимацијата на црвеното копче */
+.highlight-box.featured {
+  background-color: #ff2e2e;
+  border-color: #ff2e2e;
+  cursor: pointer;
+  
+  /* Активна пулсирачка анимација што се повторува бескрајно */
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Кога ќе поминеш со глувчето, малку да се забрза или засили */
+.highlight-box.featured:hover {
+  background-color: #e02424;
+  animation: pulseGlow 1s infinite ease-in-out;
+}
+
+/* РЕСПОНЗИВНОСТ ЗА МОБИЛНИ АПАРАТИ */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .main-card {
+    padding: 20px;
+  }
+}
