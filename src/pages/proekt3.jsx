@@ -49,7 +49,7 @@ function Proekt3({ onBack }) {
           className="back-btn" 
           onClick={onBack || (() => window.history.back())}
         >
-          ← Назад кон почетна
+          ← Back to Home
         </button>
 
         {/* Hero Header */}

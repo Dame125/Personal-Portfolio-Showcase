@@ -50,7 +50,7 @@ function Proekt2({ onBack }) {
           className="back-btn" 
           onClick={onBack || (() => window.history.back())}
         >
-          ← Назад кон почетна
+          ← Back to Home
         </button>
 
         {/* Hero Header */}
@@ -123,6 +123,8 @@ function Proekt2({ onBack }) {
         </div>
       </div>
     </div>
+
+
   );
 }
 
