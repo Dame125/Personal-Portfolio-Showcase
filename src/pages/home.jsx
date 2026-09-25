@@ -340,7 +340,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/TVOJOT_USERNAME/TVOJOT_REPO"
+                    href="https://github.com/Dame125/Vitaminka-Game-Concept"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
@@ -380,7 +380,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/TVOJOT_USERNAME/TVOJOT_REPO"
+                    href="https://github.com/Dame125/VeloQuest"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
@@ -460,7 +460,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/TVOJOT_USERNAME/TVOJOT_REPO"
+                    href="https://github.com/Dame125/Firebase-Balloon-Shooter-App"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
@@ -501,7 +501,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/TVOJOT_USERNAME/TVOJOT_REPO"
+                    href="https://github.com/Dame125/Personal-Portfolio-Showcase"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
@@ -541,7 +541,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/TVOJOT_USERNAME/TVOJOT_REPO"
+                    href="https://github.com/Dame125/Vo-Top-Forma"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
@@ -621,7 +621,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href=""
+                    href="https://github.com/Dame125/Damjan-Nikoloski"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"
