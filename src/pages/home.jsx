@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
+import emailjs from '@emailjs/browser';
 import moeLogo from "../Pictures/heroslika.png";
 import instaLogo from "../Pictures/slika123.png";
 import pozzadina from "../Pictures/pozadina1.png";
@@ -18,18 +19,19 @@ import zavrsen from "../projectsPictures/zavrsen proekt.png";
 
 function Home() {
   // 1. Држави (States) за контакт форма и мени
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+ const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
     message: "",
   });
+  const [status, setStatus] = useState(""); // Додадено за известување (испратено / грешка)
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State за мобилно мени
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Ref за скролање на проектите ( carousel )
-  const scrollRef = useRef(null);
+  const formRef = useRef(); // Ref за EmailJS формата
+  const scrollRef = useRef(null); // Ref за каруселот
 
   // 2. Функција за скролање до соодветната секција
   const scrollToSection = (id) => {
@@ -39,14 +41,14 @@ function Home() {
     }
   };
 
-  // 3. Ракување со мени кликови (со автоматско затворање на мобилното мени)
+  // 3. Ракување со мени кликови
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
     scrollToSection(sectionId);
-    setIsMenuOpen(false); // Затворање на мобилното мени по клик
+    setIsMenuOpen(false);
   };
 
-  // 4. Форма логика
+  // 4. Форма логика со EmailJS
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -54,25 +56,38 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Пораката од ${formData.name} е спремна за праќање!`);
-    setFormData({ name: "", email: "", message: "" });
+    setStatus("Се испраќа...");
+
+    emailjs
+      .sendForm(
+        "service_mznajhp",            // Твојот Service ID
+        "template_4y89d5z",          // Замени со твојот Template ID
+        formRef.current,
+        "BxMDrWIuowYQEK0_n"            // Замени со твојот Public Key
+      )
+      .then(
+        () => {
+          setStatus("Пораката е успешно испратена!");
+          setFormData({ from_name: "", from_email: "", message: "" });
+        },
+        (error) => {
+          setStatus("Грешка при испраќање. Обиди се повторно.");
+          console.error(error);
+        }
+      );
   };
 
-  // 5. Ефект за менување позадина на Navbar при скролање
+  // 5. Ефект за Navbar при скролање
   useEffect(() => {
     const handleScrollEvent = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScrollEvent);
     return () => window.removeEventListener("scroll", handleScrollEvent);
   }, []);
 
-  // 6. Функција за скролање картички лево/десно
+  // 6. Функција за скролање карусел
   const handleScroll = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = 300;
@@ -525,7 +540,7 @@ function Home() {
               <img
                 src={Topforma}
                 alt="Task Manager"
-                className="project-img"
+                className="project-logo-img"
               />
               <div className="project-info">
                 <h3>Vo Top Forma</h3>
@@ -672,12 +687,59 @@ function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <p className="copyright">
-          © {new Date().getFullYear()} - Изработено во React
-        </p>
-      </footer>
+    <section id="contact" className="contact-section">
+  <h2 className="contact-title">Контакт</h2>
+  
+  <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+    <div className="form-group">
+      <label htmlFor="from_name" className="form-label">Име:</label>
+      <input 
+        id="from_name"
+        type="text" 
+        name="from_name" 
+        value={formData.from_name}
+        onChange={handleInputChange}
+        required 
+        className="form-input"
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="from_email" className="form-label">Е-маил:</label>
+      <input 
+        id="from_email"
+        type="email" 
+        name="from_email" 
+        value={formData.from_email}
+        onChange={handleInputChange}
+        required 
+        className="form-input"
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="message" className="form-label">Порака:</label>
+      <textarea 
+        id="message"
+        name="message" 
+        value={formData.message}
+        onChange={handleInputChange}
+        required 
+        rows="5" 
+        className="form-textarea"
+      ></textarea>
+    </div>
+
+    <button type="submit" className="form-submit-btn">
+      Испрати
+    </button>
+  </form>
+
+  {status && <p className="form-status-message">{status}</p>}
+</section>
+    
+      
+      
     </div>
   );
 }
