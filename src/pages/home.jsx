@@ -56,7 +56,7 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("Се испраќа...");
+    setStatus("Sending...");
 
     emailjs
       .sendForm(
@@ -67,11 +67,11 @@ function Home() {
       )
       .then(
         () => {
-          setStatus("Пораката е успешно испратена!");
+          setStatus("Message sent successfully!");
           setFormData({ from_name: "", from_email: "", message: "" });
         },
         (error) => {
-          setStatus("Грешка при испраќање. Обиди се повторно.");
+          setStatus("Error sending message. Please try again.");
           console.error(error);
         }
       );
@@ -688,11 +688,11 @@ function Home() {
       </section>
 
     <section id="contact" className="contact-section">
-  <h2 className="contact-title">Контакт</h2>
+  <h2 className="contact-title">Contact</h2>
   
   <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
     <div className="form-group">
-      <label htmlFor="from_name" className="form-label">Име:</label>
+      <label htmlFor="from_name" className="form-label">Name:</label>
       <input 
         id="from_name"
         type="text" 
@@ -705,7 +705,7 @@ function Home() {
     </div>
 
     <div className="form-group">
-      <label htmlFor="from_email" className="form-label">Е-маил:</label>
+      <label htmlFor="from_email" className="form-label">E-mail:</label>
       <input 
         id="from_email"
         type="email" 
@@ -718,7 +718,7 @@ function Home() {
     </div>
 
     <div className="form-group">
-      <label htmlFor="message" className="form-label">Порака:</label>
+      <label htmlFor="message" className="form-label">Message:</label>
       <textarea 
         id="message"
         name="message" 
@@ -731,7 +731,7 @@ function Home() {
     </div>
 
     <button type="submit" className="form-submit-btn">
-      Испрати
+      Send the message
     </button>
   </form>
 
