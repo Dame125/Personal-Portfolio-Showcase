@@ -14,6 +14,7 @@ import Balon from "../projectsPictures/balon.png";
 import Vita from "../projectsPictures/Vitaminka.png"; 
 import Topforma from "../projectsPictures/votopforma.png";
 import zavrsen from "../projectsPictures/zavrsen proekt.png";
+import Opstina from "../projectsPictures/Opstina.png";
 
 
 
@@ -618,16 +619,14 @@ function Home() {
             {/* КАРТИЧКА 8 */}
             <div className="project-card">
               <img
-                src={Tamaro}
+                src={Opstina}
                 alt="Weather App"
                 className="project-img"
               />
               <div className="project-info">
-                <h3>Tamaro</h3>
+                <h3>Vodopadi</h3>
                 <p>
-                  A foundational web development project created to master core
-                  frontend principles, semantic HTML structuring, and responsive
-                  CSS layout techniques.
+                   A community-driven web application designed for citizens to report local infrastructure issues and municipal damages after logging in, enabling quick tracking and response from local authorities.
                 </p>
 
                 <div className="project-buttons">
@@ -636,7 +635,7 @@ function Home() {
                   </Link>
 
                   <a
-                    href="https://github.com/Dame125/Damjan-Nikoloski"
+                    href="https://github.com/Dame125/Municipal-Issue-Reporter-Vodopadi-"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-btn"

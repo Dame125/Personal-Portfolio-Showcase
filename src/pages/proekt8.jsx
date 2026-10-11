@@ -8,34 +8,36 @@ function Proekt8({ onBack }) {
   }, []);
 
   const technologies = [
-    { name: 'HTML5', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: 'CSS3', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }
+    { name: 'HTML', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: 'CSS', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: 'JavaScript', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: 'Firebase', icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
   ];
 
   const highlights = [
-    { title: 'STARTING POINT', desc: 'First Web Project' },
-    { title: 'STRUCTURE', desc: 'Semantic HTML5 Markup' },
-    { title: 'DEMO', desc: 'Live Netlify Preview', featured: true, link: 'https://tamaro.netlify.app/' },
-    { title: 'STYLING', desc: 'Custom CSS3 Layouts' },
-    { title: 'FUNDAMENTALS', desc: 'Pure Frontend Logic' }
+    { title: 'CIVIC PLATFORM', desc: 'Municipal Issue Reporting' },
+    { title: 'BACKEND', desc: 'Firebase Authentication & DB' },
+    { title: 'DEMO', desc: 'Live Netlify Preview', featured: true, link: 'https://vodopadi.netlify.app/' },
+    { title: 'DATA HANDLING', desc: 'Dynamic Form Submissions' },
+    { title: 'FULL STACK LOGIC', desc: 'Async JS & CRUD Operations' }
   ];
 
   const features = [
     {
-      title: 'Semantic Structure',
-      desc: 'Built using clean, readable, and semantic HTML5 elements for optimal content organization.'
+      title: 'Firebase Backend Integration',
+      desc: 'Implemented secure user authentication and connected Firebase services for real-time data storage and fetching of reported issues.'
     },
     {
-      title: 'Custom Styling',
-      desc: 'Designed completely from scratch using CSS3 to control typography, colors, spacing, and visual presentation.'
+      title: 'Dynamic Form & Data Handling',
+      desc: 'Built interactive JavaScript forms to capture user inputs and dynamically render updated report statuses directly in the browser.'
     },
     {
-      title: 'Layout Techniques',
-      desc: 'Practical application of layout positioning concepts to build a coherent and structured visual interface.'
+      title: 'Responsive UI/UX',
+      desc: 'Styled a clean, user-friendly interface using HTML and CSS, ensuring full responsiveness across mobile and desktop devices.'
     },
     {
-      title: 'Fundamentals First',
-      desc: 'Focus on core web technologies before transitioning into JavaScript and modern frontend frameworks.'
+      title: 'Full-Stack Logic & Problem Solving',
+      desc: 'Mastered core asynchronous JavaScript concepts, state management, and basic database CRUD operations through real-world implementation.'
     }
   ];
 
@@ -52,9 +54,9 @@ function Proekt8({ onBack }) {
 
         {/* Hero Header */}
         <header className="hero-section">
-          <p className="sub-header">First Portfolio Project | Web Development Foundations</p>
-          <h1 className="main-title">TAMARO</h1>
-          <p className="tagline">Foundational Web Project Built with HTML5 & CSS3</p>
+          <p className="sub-header">Full-Stack Civic Web Application</p>
+          <h1 className="main-title">VODOPADI</h1>
+          <p className="tagline">Municipal Issue Reporter Built with JS & Firebase</p>
         </header>
 
         {/* Главна мрежа */}
@@ -63,12 +65,12 @@ function Proekt8({ onBack }) {
           <div className="main-card">
             <h2 className="section-title">Short Summary</h2>
             <p className="summary-text">
-              A foundational web development project created to master core frontend principles, semantic HTML structuring, and responsive CSS layout techniques.
+              A community-driven web application designed for citizens to report local infrastructure issues and municipal damages after logging in, enabling quick tracking and response from local authorities.
             </p>
 
             <h2 className="section-title" style={{ marginTop: '30px' }}>Project Overview</h2>
             <p className="description-text">
-              Tamaro represents the starting point of my journey into web development. The primary goal of this project was to establish a solid grasp of web design fundamentals without relying on external frameworks or libraries. It served as a hands-on playground to practice structured markup, page hierarchy, and custom styling rules.
+              This project was built to digitize public services and streamline civic engagement. The core goal was to create an intuitive platform where authenticated users can easily report urban issues (such as road damage or public utility problems), giving municipal services an organized dashboard to log and address issues efficiently.
             </p>
 
             <h2 className="section-title" style={{ marginTop: '30px' }}>Key Features & What I Learned</h2>
